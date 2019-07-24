@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+<h:head>
+	<title>GRAFICATIEMPO</title>
+</h:head>
+<h:body>
+	<h:form>
+		<style type="text/css">
+.value {
+	font-weight: bold;
+}
+</style>
+		<p:growl id="msgs" showDetail="true" />
+		<p:panel header="GRAFICA SEXO POR AÑOS" style="margin-bottom:10px;">
+			<center>
+				<table>
+					<tr>
+						<td>
+
+							<center>
+								<p:chart type="pie" model="#{graficas_sexo.pieModel2}"
+									style="width:400px;height:300px" />
+
+							</center>
+						</td>
+						<td>
+
+							<center>
+								<p:dataTable value="#" style="width:400px;height:275px">
+									<p:column headerText="TOTAL">
+										<p:row>
+											<center>
+												<h3>2015</h3>
+											</center>
+										</p:row>
+										<p:row>
+											<h3>HOMBRE:</h3>
+											<center>#{graficas_sexo.hom1}</center>
+										</p:row>
+
+										<p:separator />
+										<p:row>
+											<h3>MUJER:</h3>
+											<center>#{graficas_sexo.muj1}</center>
+										</p:row>
+									</p:column>
+								</p:dataTable>
+							</center>
+						</td>
+					</tr>
+
+					<tr>
+
+						<td><p:chart type="pie" model="#{graficas_sexo.pieModel3}"
+								style="width:400px;height:300px" /></td>
+						<td><center>
+								<p:dataTable value="#" style="width:400px;height:275px">
+									<p:column headerText="TOTAL">
+										<p:row>
+											<center>
+												<h3>2016</h3>
+											</center>
+										</p:row>
+										<p:row>
+											<h3>HOMBRE:</h3>
+											<center>#{graficas_sexo.hom2}</center>
+										</p:row>
+
+										<p:separator />
+										<p:row>
+											<h3>MUJER:</h3>
+											<center>#{graficas_sexo.muj2}</center>
+										</p:row>
+									</p:column>
+								</p:dataTable>
+							</center></td>
+					</tr>
+
+				</table>
+			</center>
+		</p:panel>
+
+	</h:form>
+
+	<h:form>
+		<h:commandButton action="Menu_us.xhtml" value="REGRESAR" />
+	</h:form>
+
+
+</h:body>
+
+
+
+</html>

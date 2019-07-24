@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>CONSULTA</title>
+</h:head>
+<h:body>
+	<h:form>
+		<style type="text/css">
+.value {
+	font-weight: bold;
+}
+</style>
+		<p:growl id="msgs" showDetail="true" />
+		<p:panel header="Consulta" style="margin-bottom:10px;">
+			<h3 style="margin-top: 0">Seleccionar periodo de analisis</h3>
+			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+				<p:outputLabel for="año" value="Año:" />
+				<p:selectOneRadio id="año" value="#{con.anio}" unselectable="true">
+					<f:selectItem itemLabel="2015" itemValue="2015" />
+					<f:selectItem itemLabel="2016" itemValue="2016" />
+				</p:selectOneRadio>
+			</h:panelGrid>
+
+			<h3>TRIMESTRE</h3>
+			<h:selectOneMenu value="#{con.trimestre}">
+				<f:selectItem itemValue="#{null}" itemLabel="..Seleccione" />
+				<f:selectItems value="#{con.lista_trimestre}" />
+			</h:selectOneMenu>
+
+			<h3>Etnia</h3>
+			<h:selectOneMenu value="#{con.etnia}">
+				<f:selectItem itemValue="#{null}" itemLabel="..Seleccione" />
+				<f:selectItems value="#{con.lista_etnia}" />
+			</h:selectOneMenu>
+
+			<h3>PROVINCIA</h3>
+			<h:selectOneMenu value="#{con.provincia}">
+				<f:selectItem itemValue="#{null}" itemLabel="..Seleccione" />
+				<f:selectItems value="#{con.lista_provincia}" />
+				<f:ajax listener="#{con.generar_lista_canton}" render="cbocan" />
+			</h:selectOneMenu>
+			<h3>CANTON</h3>
+			<h:selectOneMenu id="cbocan" value="#{con.canton}">
+				<f:selectItem itemValue="#{null}" itemLabel="..Seleccione" />
+				<f:selectItems value="#{con.lista_canton}" />
+			</h:selectOneMenu>
+
+			<p:separator />
+
+			<h:commandButton actionListener="#{con.boton_consultar()}"
+				value="Consultar" update="display" icon="pi pi-check"
+				oncomplete="PF('dlg').show()" />
+
+		</p:panel>
+
+		<p:dataTable var="car" value="#">
+
+			<p:column headerText="DATOS DE BUSQUEDA">
+
+				<p:dataTable var="car" value="#">
+					<p:column headerText="TIEMPO">
+						<p:row>
+							<h3> AÑO: </h3><center>#{con.anio}
+							</center>
+						</p:row>
+						<p:separator />
+						<p:row>
+						<h3> TRIMESTRE: </h3><center>#{con.trimestre}</center>
+						</p:row>
+					</p:column>
+					<p:column headerText="UBICACION GEOGRAFICA">
+						<p:row>
+							<h3>PROVINCIA:</h3>
+							<center>#{con.provincia}</center>
+						</p:row>
+
+						<p:separator />
+						<p:row>
+							<h3>CANTON:</h3>
+							<center>#{con.canton}</center>
+						</p:row>
+					</p:column>
+				</p:dataTable>
+
+			</p:column>
+			<p:column headerText="RESULTADOS OBTENIDOS">
+				<p:dataTable value="#" var="car">
+
+					<p:column headerText="ETNIA">
+						<p:row>
+							<center>
+								<h3>#{con.etnia}</h3>
+							</center>
+
+						</p:row>
+
+						<p:separator />
+						<p:row>
+							<h3>TOTAL:</h3>
+							<center>#{con.consulta_realizada}</center>
+						</p:row>
+					</p:column>
+
+				</p:dataTable>
+			</p:column>
+		</p:dataTable>
+		<br></br>
+
+	</h:form>
+	
+	<h:form>
+	<h:commandButton action="Menu_us.xhtml" value="REGRESAR" />
+	</h:form>
+
+</h:body>
+</html>

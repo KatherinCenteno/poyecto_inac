@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+	<title>VM1</title>
+</h:head>
+<h:body>
+	<h:form>
+		<center>
+			<h1>VISTA MATERIALIZADA POR ETNIA ,AÑO Y PROVINCIA</h1>
+			<br />
+			<h2>TOP</h2>
+			<h:selectOneRadio value="#{vista2.num}">
+				<f:selectItem itemValue="10" itemLabel="10" />
+				<f:selectItem itemValue="20" itemLabel="20" />
+				<f:selectItem itemValue="30" itemLabel="30" />
+			</h:selectOneRadio>
+
+			<h:commandButton actionListener="#{vista2.generar()}"
+				value="CONSULTAR" />
+			<br /> <br />
+		</center>
+
+		<p:dataTable value="#{vista2.vista}" var="vm">
+			<p:column headerText="N°">
+				<center>#{vm.con}</center>
+			</p:column>
+			<p:column headerText="ETNIA">
+				<center>#{vm.etnia}</center>
+			</p:column>
+
+			<p:column headerText="AÑO Y TRIMESTRE ">
+				<center>#{vm.anio}</center>
+			</p:column>
+			<p:column headerText="PROVINCIA Y CANTONvista_materializada.xhtml">
+				<center>#{vm.ubicacion}</center>
+			</p:column>
+
+			<p:column headerText="TOTAL">
+				<center>#{vm.total}</center>
+			</p:column>
+
+		</p:dataTable>
+
+	</h:form>
+	
+	
+<h:form>
+
+<h:commandButton action="Menu_us.xhtml" value="REGRESAR" />
+</h:form>
+	
+
+</h:body>
+
+</html>

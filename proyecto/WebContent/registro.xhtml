@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>REGISTRARSE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</h:head>
+<h:body>
+	<h1>REGISTRARSE</h1>
+
+	<h:form>
+		<br />
+
+		<br />
+		<h:outputText value="Nombre:" />
+		<br />
+		<h:inputText value="#{registro.nombre}" required="true" label="nombre" />
+		<br />
+		<h:outputText value="Correo:" />
+		<br />
+		<h:inputText id="txtCorreo" type="email" value="#{registro.correo}"
+			required="true" label="Campo Requerido"
+			requiredMessage="Ingrese su Correo"
+			validatorMessage="Correo invalido">
+			<f:validateRegex
+				pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+		</h:inputText>
+		<h:messages for="txtCorreo" style="color: red" />
+
+		<br />
+		#{registro.mensaje_correo}
+		<br />
+		<h:outputText value="Contraseña:" />
+		<br />
+		<h:inputSecret value="#{registro.contrasenia}" required="true"
+			label="pass" />
+		<br />
+		#{registro.mensaje_pass}
+		<br />
+
+
+		<h:commandButton action="#{registro.boton()}" value="Registrarse" />
+		<input type="reset" value="BORRAR" />
+	</h:form>
+
+	<h:form>
+		<h:commandButton action="index.xhtml" value="Regresar" />
+	</h:form>
+
+</h:body>
+</html>

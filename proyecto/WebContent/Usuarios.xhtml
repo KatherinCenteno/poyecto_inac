@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+	<title>USUARIOS</title>
+</h:head>
+<h:body>
+
+
+	<h:form>
+		<style type="text/css">
+.value {
+	font-weight: bold;
+}
+</style>
+		<p:growl id="msgs" showDetail="true" />
+		<p:panel header="USUARIOS" style="margin-bottom:10px;">
+		
+		<p:dataTable value="#{usuarios.user}" var="us">
+
+			<p:column headerText="NOMBRE">
+	#{us.nombre}
+	</p:column>
+			<p:column headerText="NICK">
+	#{us.nick}
+	</p:column>
+			<p:column headerText="ESTADO">
+	#{us.estado}
+	</p:column>
+			<p:column headerText="CORREO">
+	#{us.correo}
+	</p:column>
+	
+	<p:column>
+	<center><p:commandButton  action="editar.xhtml" value="EDITAR"/></center>
+	</p:column>
+		</p:dataTable>
+
+	
+	
+		</p:panel>
+</h:form>
+</h:body>
+</html>

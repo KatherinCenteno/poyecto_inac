@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>GRAFICASEXO</title>
+</h:head>
+<h:body>
+
+
+	<h:form>
+		<style type="text/css">
+.value {
+	font-weight: bold;
+}
+</style>
+		<p:growl id="msgs" showDetail="true" />
+		<p:panel header="GRAFICA POR ETNIA " >
+			<center>
+				<p:chart type="bar" model="#{barras.barModel}" />
+			</center>
+			
+			<p:dataTable value="#">
+			
+			<p:column headerText="Indígena">
+			<center><h3>#{barras.nivel1}</h3></center>
+			</p:column>
+			
+			<p:column headerText="Afroecuatoriano">
+			
+			<center><h3>#{barras.nivel2}</h3></center>
+			</p:column>
+			
+			<p:column headerText="Negra">
+			
+			<center><h3>#{barras.nivel3}</h3></center>
+			</p:column>
+			
+			<p:column headerText="Mulata">
+			
+			<center><h3>#{barras.nivel4}</h3></center>
+			</p:column>
+			<p:column headerText="Montubio">
+			
+			<center><h3>#{barras.nivel5}</h3></center>
+			</p:column>
+			<p:column headerText="Mestizo">
+			
+			<center><h3>#{barras.nivel6}</h3></center>
+			</p:column>
+			<p:column headerText="Blanca">
+			
+			<center><h3>#{barras.nivel7}</h3></center>
+			</p:column>
+			<p:column headerText="Otra">
+			
+			<center><h3>#{barras.nivel8}</h3></center>
+			</p:column>
+			<p:column headerText="Ignorado">
+			
+			<center><h3>#{barras.nivel9}</h3></center>
+			</p:column>
+			
+			
+			
+			</p:dataTable>
+			
+		</p:panel>
+
+	</h:form>
+
+	<h:form>
+		<h:commandButton action="Menu_us.xhtml" value="REGRESAR" />
+	</h:form>
+
+
+</h:body>
+
+</html>

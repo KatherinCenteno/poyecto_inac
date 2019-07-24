@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+	<title>GRAFICATIEMPO</title>
+</h:head>
+<h:body>
+	<h:form>
+		<style type="text/css">
+.value {
+	font-weight: bold;
+}
+</style>
+		<p:growl id="msgs" showDetail="true" />
+		<p:panel header="GRAFICA POR AÑOS" style="margin-bottom:10px;">
+			<center>
+				<table>
+					<tr>
+						<td>
+
+							<center>
+								<p:chart type="pie" model="#{graficas.pieModel2}"
+									style="width:400px;height:300px" />
+							</center>
+						</td>
+						<td>
+
+							<center>
+								<p:dataTable value="#" style="width:400px;height:275px">
+									<p:column headerText="TOTAL">
+										<p:row>
+											<center>
+												<h3>AÑOS</h3>
+											</center>
+										</p:row>
+										<p:row>
+											<h3>2015:</h3>
+											<center>#{graficas.anio_2015}</center>
+										</p:row>
+
+										<p:separator />
+										<p:row>
+											<h3>2016:</h3>
+											<center>#{graficas.anio_2016}</center>
+										</p:row>
+									</p:column>
+								</p:dataTable>
+							</center>
+						</td>
+					</tr>
+				</table>
+			</center>
+		</p:panel>
+
+	</h:form>
+
+	<h:form>
+		<h:commandButton action="Menu_us.xhtml" value="REGRESAR" />
+	</h:form>
+
+
+</h:body>
+
+</html>
